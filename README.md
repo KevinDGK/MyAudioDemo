@@ -592,7 +592,13 @@ public class PCMTester implements BaseTester, AudioRecorder.onRecorderListener {
 
 
 
-# 三、小结
+# 三、运行
+
+
+
+
+
+# 四、小结
 
 在实际开发中，除视音频应用外，我们使用到音频的播放和录制的场景并不太多，尤其是大部分我们都会直接使用MediaRecorder\MediaPlayer\SoundPool等进行音频的录制和播放，因为大多不需要直接接触到原始的音频数据流，直接录制和播放音频文件，比较方便。但是如果想要实现定制，比如音频的编码和压缩，就需要使用AudioRecord和AudioTrack进行编码，比较更加接近于底层。具体使用哪种方式，视需求而定。
 
@@ -605,3 +611,13 @@ public class PCMTester implements BaseTester, AudioRecorder.onRecorderListener {
 1.[如何存储和解析wav文件 - 卢俊](http://ticktick.blog.51cto.com/823160/1752947)
 
 2.[AudioTrack分析](http://www.cnblogs.com/innost/archive/2011/01/09/1931457.html)
+
+
+
+### 联系方式
+
+邮箱：815852777@qq.com
+
+微信：
+
+![](http://i.imgur.com/35cS46S.jpg)  
