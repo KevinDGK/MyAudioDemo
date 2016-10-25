@@ -594,7 +594,7 @@ public class PCMTester implements BaseTester, AudioRecorder.onRecorderListener {
 
 # 三、运行
 
-
+![](http://i.imgur.com/7DNNcWz.jpg)  
 
 
 
