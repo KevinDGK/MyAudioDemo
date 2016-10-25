@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:orientation="vertical"
+    android:padding="6dp"
+    tools:context=".activity.MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="PCM"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/btn_pcm_recorder_start"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/btn_bg_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="开始录制"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/btn_pcm_recorder_end"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/btn_bg_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="停止录制"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="WAV"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/btn_wav_recorder_start"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/btn_bg_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="开始录制"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/btn_wav_recorder_end"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/btn_bg_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="停止录制"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/btn_wav_player"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/btn_bg_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="播放"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="注意事项：
+            \n1.PCM是录制音频流，边录边播放，模拟语音通话；
+            \n2.WAV是录制音频文件，点击按钮开始和停止录制音频数据，然后点击'播放'按钮播放，文件保存在SD卡的根目录下，名称为Test.wav；"
+        android:textSize="16sp" />
+
+</LinearLayout>
