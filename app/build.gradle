@@ -11,12 +11,67 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
+        ndk {
+            moduleName "libspeex"               // 指定生成的.so库的名称
+            abiFilters "armeabi", "x86"          // 指定生成那些CPU平台的.so库，默认生成全部平台
+            ldLibs "log"                        // 加载log.h，用于在C代码中打印log
+            cFlags "-DFIXED_POINT -DUSE_KISS_FFT -DEXPORT=\"\" -UHAVE_CONFIG_H"
+//            "-I${file("src/main/jni/include")}".toString()
+            files("./speex_jni.cpp",
+                    "./libspeex/bits.c",
+                    "./libspeex/buffer.c",
+                    "./libspeex/cb_search.c",
+                    "./libspeex/exc_10_16_table.c",
+                    "./libspeex/exc_10_32_table.c",
+                    "./libspeex/exc_20_32_table.c",
+                    "./libspeex/exc_5_256_table.c",
+                    "./libspeex/exc_5_64_table.c",
+                    "./libspeex/exc_8_128_table.c",
+                    "./libspeex/fftwrap.c",
+                    "./libspeex/filterbank.c",
+                    "./libspeex/filters.c",
+                    "./libspeex/gain_table.c",
+                    "./libspeex/gain_table_lbr.c",
+                    "./libspeex/hexc_10_32_table.c",
+                    "./libspeex/hexc_table.c",
+                    "./libspeex/high_lsp_tables.c",
+                    "./libspeex/jitter.c",
+                    "./libspeex/kiss_fft.c",
+                    "./libspeex/kiss_fftr.c",
+                    "./libspeex/lpc.c",
+                    "./libspeex/lsp.c",
+                    "./libspeex/lsp_tables_nb.c",
+                    "./libspeex/ltp.c",
+                    "./libspeex/mdf.c",
+                    "./libspeex/modes.c",
+                    "./libspeex/modes_wb.c",
+                    "./libspeex/nb_celp.c",
+                    "./libspeex/preprocess.c",
+                    "./libspeex/quant_lsp.c",
+                    "./libspeex/resample.c",
+                    "./libspeex/sb_celp.c",
+                    "./libspeex/scal.c",
+                    "./libspeex/smallft.c",
+                    "./libspeex/speex.c",
+                    "./libspeex/speex_callbacks.c",
+                    "./libspeex/speex_header.c",
+                    "./libspeex/stereo.c",
+                    "./libspeex/vbr.c",
+                    "./libspeex/vq.c",
+                    "./libspeex/window.c")
+        }
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    sourceSets.main {
+        jni.srcDirs "src/main/jni"         // 指定jni源代码路径，该路径也可以不指定，默认为src/main/jni
+        jniLibs.srcDir "libs"              // 指定jni的.so库的存放路径，该路径也可以不指定，默认为src/main/jniLibs
     }
 }
 

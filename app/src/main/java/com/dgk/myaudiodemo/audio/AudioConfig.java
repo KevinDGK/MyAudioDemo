@@ -22,4 +22,6 @@ public class AudioConfig {
     public static final int mode = AudioTrack.MODE_STREAM;                     // 输出模式
 
     public static final String DEFAULT_WAV_PATH = Environment.getExternalStorageDirectory() + "/test.wav";
+
+    public static final int SPEEX_DATA_SIZE = 20;
 }

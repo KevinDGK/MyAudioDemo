@@ -6,6 +6,8 @@ import android.view.View;
 
 import com.dgk.myaudiodemo.R;
 import com.dgk.myaudiodemo.test.PCMTester;
+import com.dgk.myaudiodemo.test.SpeexTalkTester;
+import com.dgk.myaudiodemo.test.UnEncodeTalkTester;
 import com.dgk.myaudiodemo.test.WAVTester;
 import com.dgk.myaudiodemo.util.CommUtil;
 
@@ -16,8 +18,13 @@ public class MainActivity extends AppCompatActivity {
 
     private PCMTester pcmTester;
     private WAVTester wavTester;
+    private UnEncodeTalkTester talkUnEncodeTester;
+    private SpeexTalkTester speexTalkTester;
+
     private boolean isPCMTesting;
     private boolean isWAVTesting;
+    private boolean isUnEncodeTalkTesting;
+    private boolean isSpeexTalkTesting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.btn_pcm_recorder_start, R.id.btn_pcm_recorder_end,
-            R.id.btn_wav_recorder_start, R.id.btn_wav_recorder_end, R.id.btn_wav_player})
+            R.id.btn_wav_recorder_start, R.id.btn_wav_recorder_end, R.id.btn_wav_player,
+            R.id.btn_8_recorder_start, R.id.btn_8_recorder_end,
+            R.id.btn_speex_recorder_start, R.id.btn_speex_recorder_end})
     public void onClick(View v) {
 
         switch (v.getId()) {
@@ -80,6 +89,38 @@ public class MainActivity extends AppCompatActivity {
                     isWAVTesting = true;
                 }
                 CommUtil.Toast("开始播放WMV");
+                break;
+
+            case R.id.btn_8_recorder_start:   // 8KHz/16bit/单声道
+                if (!isUnEncodeTalkTesting) {
+                    CommUtil.Toast("开始通话");
+                    talkUnEncodeTester = new UnEncodeTalkTester();
+                    talkUnEncodeTester.start();
+                    isUnEncodeTalkTesting = true;
+                }
+                break;
+            case R.id.btn_8_recorder_end:
+                if (isUnEncodeTalkTesting) {
+                    CommUtil.Toast("停止通话");
+                    talkUnEncodeTester.stop();
+                    isUnEncodeTalkTesting = false;
+                }
+                break;
+
+            case R.id.btn_speex_recorder_start:   // Speex
+                if (!isSpeexTalkTesting) {
+                    CommUtil.Toast("开始通话");
+                    speexTalkTester = new SpeexTalkTester();
+                    speexTalkTester.start();
+                    isSpeexTalkTesting = true;
+                }
+                break;
+            case R.id.btn_speex_recorder_end:
+                if (isSpeexTalkTesting) {
+                    CommUtil.Toast("停止通话");
+                    speexTalkTester.stop();
+                    isSpeexTalkTesting = false;
+                }
                 break;
         }
     }
